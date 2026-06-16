@@ -11,6 +11,7 @@ const messages = {
 
 const loader = document.querySelector('.loader');
 const gallery = document.querySelector('.gallery');
+const loadMoreBtn = document.querySelector('.load-more');
 
 function extractTags(tags, number) {
   if (!tags || typeof tags !== 'string') {
@@ -41,12 +42,11 @@ export const showToast = (messageType) => {
 };
 
 export function showLoader() {
-  console.log("Loader: ", loader.classList)
-  loader.classList.remove('visually-hidden');
+  loader.classList.remove('hidden');
 }
 
 export function hideLoader() {
-  loader.classList.add('visually-hidden');
+  loader.classList.add('hidden');
 }
 
 export function createGallery(images) {
@@ -81,3 +81,10 @@ export function clearGallery() {
   gallery.innerHTML = '';
 }
 
+export function showLoadMoreButton() {
+  loadMoreBtn.classList.remove('hidden');
+}
+
+export function hideLoadMoreButton() {
+  loadMoreBtn.classList.add('hidden');
+}

@@ -1,19 +1,27 @@
-import { clearGallery, createGallery, hideLoader, showLoader, showToast } from './js/render-functions.js';
+import {
+  clearGallery,
+  createGallery,
+  hideLoader,
+  showLoader,
+  showLoadMoreButton,
+  showToast
+} from './js/render-functions.js';
 import { getImagesByQuery } from './js/pixabay-api.js';
 
 const form = document.querySelector("form");
-
+let page = 1;
+let query;
 form.addEventListener("submit", onSubmit);
 
 async function onSubmit(e) {
   e.preventDefault();
-  const query = e.target.elements["search-text"].value.trim();
+  query = e.target.elements["search-text"].value.trim();
 
   clearGallery();
   showLoader();
 
   try {
-    const data = await getImagesByQuery(query);
+    const data = await getImagesByQuery(query, page);
     if (data.hits.length === 0) {
       showToast("warning");
       return;
@@ -23,6 +31,7 @@ async function onSubmit(e) {
     showToast("error");
   } finally {
     hideLoader();
+    showLoadMoreButton();
     e.target.reset();
   }
 }

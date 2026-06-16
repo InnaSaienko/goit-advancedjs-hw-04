@@ -1,6 +1,6 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import SimpleLightbox from 'simplelightbox';
+import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm.js';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 //Show message form according state
@@ -23,7 +23,6 @@ function extractTags(tags, number) {
   return firstThree.join(', ');
 }
 
-
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'data-caption',
   captionPosition: 'bottom',
@@ -42,11 +41,12 @@ export const showToast = (messageType) => {
 };
 
 export function showLoader() {
-  loader.classList.remove('hidden');
+  console.log("Loader: ", loader.classList)
+  loader.classList.remove('visually-hidden');
 }
 
 export function hideLoader() {
-  loader.classList.add('hidden');
+  loader.classList.add('visually-hidden');
 }
 
 export function createGallery(images) {

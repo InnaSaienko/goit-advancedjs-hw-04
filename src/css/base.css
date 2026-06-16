@@ -47,8 +47,17 @@ img {
   height: auto;
 }
 
-.loader.hidden {
-  display: none;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .loader {
@@ -133,24 +142,23 @@ img {
     }
 
   }
+}
 
-  & button[type="submit"] {
-    background: #4e75ff;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    width: 91px;
-    height: 40px;
-    color: #fff;
-    font-family: var(--font-mont), sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
-    letter-spacing: 0.04em;
+& .button {
+  background: #4e75ff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: var(--font-mont), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
 
-    &:hover {
-      background: #6c8cff;
-    }
+  &:hover {
+    background: #6c8cff;
   }
 }
 

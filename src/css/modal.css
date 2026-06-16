@@ -1,0 +1,64 @@
+/* Hide the default arrow icons but keep the buttons functional */
+.sl-prev,
+.sl-next {
+  color: #fff !important;
+  font-size: 4rem !important;
+}
+
+.sl-overlay {
+  background: #2E2F42 !important;
+}
+
+.sl-close {
+  font-size: 4rem !important;
+  color: #fff !important;
+}
+
+.sl-caption {
+  background: rgba(46, 47, 66, 0.7) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 20px;
+  margin: 16px auto;
+  max-width: 80%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+  text-align: center;
+  font-size: 2rem !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.3);
+  transform-origin: center;
+  animation-timing-function: linear;
+  animation: gentleSpread 1.2s linear 0.1s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes gentleSpread {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  30% {
+    opacity: 0.3;
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 0.7;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effect for caption */
+.sl-caption:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.01);
+  transition: all 0.4s ease;
+}

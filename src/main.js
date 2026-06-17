@@ -53,7 +53,6 @@ async function onLoadMore() {
   try{
     const data = await getImagesByQuery(query, page);
     createGallery(data.hits);
-    totalPages--;
   } catch (error) {
     showToast("error");
   } finally {

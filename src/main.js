@@ -58,7 +58,7 @@ async function onLoadMore() {
     showToast("error");
   } finally {
     hideLoader();
-    showLoadMoreButton();
+    page >= totalPages ? hideLoadMoreButton() : showLoadMoreButton();
     loadMoreBtn.disabled = false;
   }
 }

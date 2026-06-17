@@ -4,7 +4,7 @@ import {
   hideLoader, hideLoadMoreButton,
   showLoader,
   showLoadMoreButton,
-  showToast
+  showToast, smoothScroll
 } from './js/render-functions.js';
 import { getImagesByQuery } from './js/pixabay-api.js';
 
@@ -53,6 +53,10 @@ async function onLoadMore() {
   try{
     const data = await getImagesByQuery(query, page);
     createGallery(data.hits);
+    const firstCard = document.querySelector('.gallery-item');
+    if (firstCard) {
+      smoothScroll(firstCard.getBoundingClientRect().height);
+    }
   } catch (error) {
     showToast("error");
   } finally {

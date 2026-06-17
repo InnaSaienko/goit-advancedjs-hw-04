@@ -12,7 +12,6 @@ const form = document.querySelector("form");
 export const loadMoreBtn = document.querySelector('.load-more');
 
 let page = 1;
-let totalHits;
 let totalPages;
 let query;
 

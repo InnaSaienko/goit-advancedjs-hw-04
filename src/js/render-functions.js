@@ -88,3 +88,10 @@ export function showLoadMoreButton() {
 export function hideLoadMoreButton() {
   loadMoreBtn.classList.add('hidden');
 }
+
+export function smoothScroll(height) {
+  return  window.scrollBy({
+    top: height * 2,
+    behavior: 'smooth',
+  });
+}

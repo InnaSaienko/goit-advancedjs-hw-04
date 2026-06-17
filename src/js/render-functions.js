@@ -6,7 +6,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 //Show message form according state
 const messages = {
   warning: "Sorry, there are no images matching your search query. Please try again!",
-  error: "An error occurred. Please try again later."
+  error: "An error occurred. Please try again later.",
+  info: "We're sorry, but you've reached the end of search results."
 };
 
 const loader = document.querySelector('.loader');
@@ -31,14 +32,31 @@ const lightbox = new SimpleLightbox('.gallery a', {
 });
 
 export const showToast = (messageType) => {
-  const config = {
-    title: messageType === 'warning' ? "No Images Found" : "Error",
-    message: messages[messageType],
-    position: 'topRight',
-    timeout: 5000,
+  const configs = {
+    warning: {
+      title: "No Images Found",
+      message: messages.warning,
+      position: 'topRight',
+      timeout: 5000,
+      color: '#FFC107'
+    },
+    error: {
+      title: "Error",
+      message: messages.error,
+      position: 'topRight',
+      timeout: 5000,
+      color: '#F44336'
+    },
+    info: {
+      title: "Information",
+      message: messages.info,
+      position: 'topRight',
+      timeout: 5000,
+      color: '#2196F3'
+    }
   };
-  const toastMethod = messageType === "warning" ? "warning" : "error";
-  return iziToast[toastMethod](config);
+  const config = configs[messageType];
+  return iziToast[messageType](config);
 };
 
 export function showLoader() {

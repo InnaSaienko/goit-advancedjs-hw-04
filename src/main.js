@@ -46,6 +46,7 @@ async function onSubmit(e) {
 
 async function onLoadMore() {
   loadMoreBtn.disabled = true;
+  hideLoadMoreButton();
   page++;
   showLoader();
 
